@@ -21,7 +21,7 @@ RUN chmod 755 /usr/local/bin/composer
 
 ADD php.ini /usr/local/etc/php/
 
-RUN npm install -g bower
+RUN npm install -g bower grunt-cli
 RUN gem install capistrano
 
 RUN rm -rf /var/lib/apt/lists/* \
