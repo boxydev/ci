@@ -11,11 +11,17 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 RUN docker-php-ext-install \
 	pdo_mysql
 
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - \
+	&& \
+	apt-get install -y \
+	nodejs
+
 ADD https://getcomposer.org/composer.phar /usr/local/bin/composer
-RUN chmod +x /usr/local/bin/composer
+RUN chmod 755 /usr/local/bin/composer
 
 ADD php.ini /usr/local/etc/php/
 
+RUN npm install -g bower
 RUN gem install capistrano
 
 RUN rm -rf /var/lib/apt/lists/* \
