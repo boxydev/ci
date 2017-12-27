@@ -1,9 +1,8 @@
-FROM php:5.6-cli
+FROM php:5.6
 MAINTAINER Matthieu Mota <matthieumota@gmail.com>
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	ruby \
-	php5-mysqlnd \
 	git \
 	zip
 

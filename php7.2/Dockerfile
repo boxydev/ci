@@ -9,6 +9,17 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 RUN docker-php-ext-install \
     zip
 
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - \
+	&& \
+	apt-get install -y \
+	nodejs
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	yarn
+
 ADD https://getcomposer.org/composer.phar /usr/local/bin/composer
 RUN chmod 755 /usr/local/bin/composer
 
