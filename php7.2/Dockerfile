@@ -4,7 +4,8 @@ MAINTAINER Matthieu Mota <matthieumota@gmail.com>
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     zip \
     unzip \
-    zlib1g-dev
+    zlib1g-dev \
+    gnupg
 
 RUN docker-php-ext-install \
     zip
