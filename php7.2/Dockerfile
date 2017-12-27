@@ -8,7 +8,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     gnupg
 
 RUN docker-php-ext-install \
-    zip
+    zip \
+    pdo_mysql
 
 RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - \
     && \
