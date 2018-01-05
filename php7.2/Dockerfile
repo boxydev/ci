@@ -7,7 +7,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     zlib1g-dev \
     gnupg
 
-RUN pecl install xdebug
+RUN pecl install xdebug-2.6.0beta1
 
 RUN docker-php-ext-install \
     zip \
