@@ -11,8 +11,9 @@ RUN pecl install xdebug-2.6.0beta1
 
 RUN docker-php-ext-install \
     zip \
-    pdo_mysql \
-    xdebug
+    pdo_mysql
+
+RUN docker-php-ext-enable xdebug
 
 RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - \
     && \
