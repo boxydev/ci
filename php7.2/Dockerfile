@@ -7,9 +7,12 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     zlib1g-dev \
     gnupg
 
+RUN pecl install xdebug
+
 RUN docker-php-ext-install \
     zip \
-    pdo_mysql
+    pdo_mysql \
+    xdebug
 
 RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - \
     && \
