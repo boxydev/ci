@@ -1,19 +1,12 @@
-FROM php:7.2
+FROM php:7.1
 MAINTAINER Matthieu Mota <matthieumota@gmail.com>
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    zip \
-    unzip \
-    zlib1g-dev \
-    gnupg
-
-RUN pecl install xdebug-2.6.0beta1
+    zlib1g-dev
 
 RUN docker-php-ext-install \
     zip \
     pdo_mysql
-
-RUN docker-php-ext-enable xdebug
 
 RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - \
     && \
@@ -22,7 +15,7 @@ RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - \
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-
+ 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     yarn
 
