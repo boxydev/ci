@@ -11,7 +11,7 @@ RUN docker-php-ext-install \
 
 RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - \
     && \
-    apt-get install -y \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
     nodejs
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
