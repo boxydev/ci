@@ -21,8 +21,9 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     yarn
 
-ADD https://getcomposer.org/composer.phar /usr/local/bin/composer
-RUN chmod 755 /usr/local/bin/composer
+RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer \
+    && \
+    chmod +x /usr/local/bin/composer
 
 RUN rm -rf /var/lib/apt/lists/* \
     apt-get clean
