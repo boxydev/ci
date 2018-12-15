@@ -5,10 +5,11 @@ RUN groupadd -g 1000 boxydev \
     && useradd -u 1000 -g 1000 -m -s /bin/bash boxydev
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    zlib1g-dev \
     git \
     gnupg \
-    unzip
+    libzip-dev \
+    unzip \
+    zlib1g-dev
 
 RUN docker-php-ext-install \
     zip \
