@@ -30,7 +30,7 @@ RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-d
     && \
     chmod +x /usr/local/bin/composer
 
-RUN wget https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -O /usr/local/bin/php-cs-fixer \
+RUN curl https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o /usr/local/bin/php-cs-fixer \
     && \
     chmod +x /usr/local/bin/php-cs-fixer
 
