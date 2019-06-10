@@ -7,11 +7,13 @@ RUN groupadd -g 1000 boxydev \
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     git \
     gnupg \
+    libicu-dev \
     libzip-dev \
     unzip \
     zlib1g-dev
 
 RUN docker-php-ext-install \
+    intl \
     zip \
     pdo_mysql
 
