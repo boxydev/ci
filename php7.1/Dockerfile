@@ -14,8 +14,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
 RUN docker-php-ext-install \
     intl \
-    zip \
-    pdo_mysql
+    pdo_mysql \
+    zip
 
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - \
     && \
