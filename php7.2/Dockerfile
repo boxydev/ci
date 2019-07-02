@@ -36,5 +36,8 @@ RUN curl -L https://cs.symfony.com/download/php-cs-fixer-v2.phar -o /usr/local/b
     && \
     chmod +x /usr/local/bin/php-cs-fixer
 
+RUN cp $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
+COPY php.ini $PHP_INI_DIR/conf.d
+
 RUN rm -rf /var/lib/apt/lists/* \
     apt-get clean
