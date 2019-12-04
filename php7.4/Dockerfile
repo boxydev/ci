@@ -1,4 +1,4 @@
-FROM php:7.1
+FROM php:7.4
 MAINTAINER Matthieu Mota <matthieumota@gmail.com>
 
 RUN groupadd -g 1000 boxydev \
@@ -17,7 +17,7 @@ RUN docker-php-ext-install \
     pdo_mysql \
     zip
 
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - \
     && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     nodejs
