@@ -9,6 +9,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     gnupg \
     libicu-dev \
     libzip-dev \
+    rsync \
     unzip \
     zlib1g-dev
 
