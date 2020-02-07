@@ -8,6 +8,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     git \
     gnupg \
     libicu-dev \
+    libxslt1-dev \
     libzip-dev \
     rsync \
     unzip \
@@ -16,6 +17,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 RUN docker-php-ext-install \
     intl \
     pdo_mysql \
+    xsl \
     zip
 
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - \
