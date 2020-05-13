@@ -1,9 +1,6 @@
 FROM php:7.3
 MAINTAINER Matthieu Mota <matthieumota@gmail.com>
 
-RUN groupadd -g 1000 boxydev \
-    && useradd -u 1000 -g 1000 -m -s /bin/bash boxydev
-
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     git \
     gnupg \
@@ -20,7 +17,7 @@ RUN docker-php-ext-install \
     xsl \
     zip
 
-RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     nodejs
