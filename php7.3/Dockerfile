@@ -17,6 +17,8 @@ RUN docker-php-ext-install \
     xsl \
     zip
 
+RUN pecl install redis && docker-php-ext-enable redis
+
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
