@@ -12,6 +12,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     zlib1g-dev
 
 RUN docker-php-ext-install \
+    bcmath \
     intl \
     pdo_mysql \
     xsl \
