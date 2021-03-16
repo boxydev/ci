@@ -1,3 +1,3 @@
 # Boxydev CI
 
-Image Docker pour l'intégration continue.
+Docker images to Continuous Integration.
