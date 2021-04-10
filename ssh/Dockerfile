@@ -1,17 +1,20 @@
 FROM ubuntu:20.04
 MAINTAINER Matthieu Mota <matthieumota@gmail.com>
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN mkdir -p /root/.ssh
+RUN apt-get update \
+    && apt-get install -y openssh-server
+
+RUN mkdir /var/run/sshd
+RUN mkdir /root/.ssh
 
 RUN rm -rf /var/lib/apt/lists/* \
     apt-get clean
 
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
-ENTRYPOINT ["docker-entrypoint.sh"]
+COPY start-container /usr/local/bin/start-container
+RUN chmod +x /usr/local/bin/start-container
 
 EXPOSE 22
+ENTRYPOINT ["start-container"]
 CMD ["/usr/sbin/sshd", "-D"]
