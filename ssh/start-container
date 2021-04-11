@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
-cat $SSH_PUB_KEY_FILE > /root/.ssh/authorized_keys
+useradd -m -s /bin/bash $SSH_USER
+mkdir -p /home/$SSH_USER/.ssh
+
+cat $SSH_PUBLIC_KEY_FILE > /root/.ssh/authorized_keys
+cp /root/.ssh/authorized_keys /home/$SSH_USER/.ssh/authorized_keys
+
+cat $SSH_PUBLIC_KEY_FILE > /home/$SSH_USER/.ssh/id_rsa.pub
+cat $SSH_PRIVATE_KEY_FILE > /home/$SSH_USER/.ssh/id_rsa
+chmod 600 /home/$SSH_USER/.ssh/id_rsa
+
+chown -R $SSH_USER:$SSH_USER /home/$SSH_USER
 
 exec "$@"
