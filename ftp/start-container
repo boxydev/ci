@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+useradd -m -s /bin/bash $FTP_USER
+PASSWORD=$(mkpasswd $FTP_PASSWORD)
+usermod --password $PASSWORD $FTP_USER
+
+exec "$@"
