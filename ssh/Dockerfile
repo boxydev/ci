@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV SSH_USER matthieu
 
 RUN apt-get update \
-    && apt-get install -y openssh-server
+    && apt-get install -y openssh-server curl lftp
 
 RUN mkdir /var/run/sshd
 RUN mkdir /root/.ssh
