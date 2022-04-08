@@ -5,13 +5,9 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV SSH_USER matthieu
 
 RUN apt-get update \
-    && apt-get install -y openssh-server curl lftp
-
-RUN mkdir /var/run/sshd
-RUN mkdir /root/.ssh
-
-RUN rm -rf /var/lib/apt/lists/* \
-    apt-get clean
+    && apt-get install -y openssh-server curl lftp \
+    && mkdir /var/run/sshd /root/.ssh \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY start-container /usr/local/bin/start-container
 RUN chmod +x /usr/local/bin/start-container

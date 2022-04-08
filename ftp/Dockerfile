@@ -6,12 +6,10 @@ ENV FTP_USER matthieu
 ENV FTP_PASSWORD password
 
 RUN apt-get update \
-    && apt-get install -y proftpd-basic whois
+    && apt-get install -y proftpd-basic whois \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY proftpd.conf /etc/proftpd/conf.d/proftpd.conf
-
-RUN rm -rf /var/lib/apt/lists/* \
-    apt-get clean
 
 COPY start-container /usr/local/bin/start-container
 RUN chmod +x /usr/local/bin/start-container
