@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV SSH_USER matthieu
 
 RUN apt-get update \
-    && apt-get install -y openssh-server curl lftp \
+    && apt-get install -y openssh-server curl lftp awscli \
     && mkdir /var/run/sshd /root/.ssh \
     && rm -rf /var/lib/apt/lists/*
 
